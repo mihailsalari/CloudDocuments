@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YHt-nb-dHl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="Hy6-pr-39K">
+            <objects>
+                <tableViewController id="ROQ-N7-41r" customClass="FilesViewController" customModule="CloudDocuments" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MiQ-UD-1wc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="BdL-n0-GNc">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BdL-n0-GNc" id="TEN-BD-Rir">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ROQ-N7-41r" id="awq-je-3gU"/>
+                            <outlet property="delegate" destination="ROQ-N7-41r" id="Lpk-SS-Npw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="qC6-ez-OOR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="m7F-YQ-28D">
+                            <connections>
+                                <action selector="addNewFileTapped:" destination="ROQ-N7-41r" id="qzw-mn-8EU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="G5X-bt-zBu" kind="show" identifier="ShowImageSegue" id="tAO-ep-WSF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oap-TF-UHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1146.4000000000001" y="136.28185907046478"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="VqZ-Ne-VMm">
+            <objects>
+                <viewController id="G5X-bt-zBu" customClass="PreviewViewController" customModule="CloudDocuments" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XZo-pn-d1Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="vsw-F1-Q7W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gP5-K1-hjA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jfd-Qe-uoV">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jfd-Qe-uoV" firstAttribute="leading" secondItem="gP5-K1-hjA" secondAttribute="leading" id="3Or-wC-Au7"/>
+                            <constraint firstAttribute="trailing" secondItem="Jfd-Qe-uoV" secondAttribute="trailing" id="Sdh-Pq-xBy"/>
+                            <constraint firstItem="Jfd-Qe-uoV" firstAttribute="top" secondItem="XZo-pn-d1Y" secondAttribute="bottom" id="UCx-e4-fyP"/>
+                            <constraint firstItem="vsw-F1-Q7W" firstAttribute="top" secondItem="Jfd-Qe-uoV" secondAttribute="bottom" id="bcC-CK-DYH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Jfd-Qe-uoV" id="dCC-bD-ohQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U6d-eZ-Byc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="135.38230884557723"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h1V-mI-ZGC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YHt-nb-dHl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CLx-Qw-NXY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ROQ-N7-41r" kind="relationship" relationship="rootViewController" id="h2C-rg-Csa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kB5-S2-RDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205.59999999999999" y="135.38230884557723"/>
+        </scene>
+    </scenes>
+</document>
